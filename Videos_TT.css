@@ -137,7 +137,24 @@ h3{
   display: none;
 }
 
-.brillante {
-  color: #fff;
-  text-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88, 0 0 20px #00ff88;
+.boton-centrado {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.boton-verde {
+  background-color: transparent;
+  color: #ACD5B8;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #ACD5B8;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-verde:hover {
+  background-color: #ACD5B8;
+  color: #000;
 }
