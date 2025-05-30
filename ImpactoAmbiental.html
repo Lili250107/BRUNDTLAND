@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brundtland</title>
+  <link rel="stylesheet" href="css/estiloIM.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Fondo oscuro al abrir menú -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Botón Menú -->
+  <div class="menu-button" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- Menú lateral derecho -->
+  <nav class="menu" id="menu">
+    <h2>Temas</h2>
+    <a href="index.html" class="link"><i class="fa-solid fa-house"></i></i> Inicio </a>
+    <a href="ImpactiAmbiental.html" class="link"><i class="fas fa-leaf"></i> Impacto Ambiental</a>
+    <a href="ImpactoSocial.html" class="link"><i class="fas fa-users"></i> Impacto Social</a>
+    <a href="Alternativas_Sost.html" class="link"><i class="fas fa-recycle"></i> Alternativas</a>
+    <a href="Videos.html" class="link"><i class="fas fa-video"></i> Videos</a>
+    <a href="videos_TT.html" class="link"><i class="fab fa-tiktok"></i> TikTok</a>
+  </nav>
+
+  <main class="container">
+    <section class="screen">
+      <section class="impacto-ambiental" id="impacto-ambiental">
+        <h1>Impacto Ambiental</h1>
+        <div class="linea"></div>
+        <p class="black-text">
+          El fast fashion afecta a diferentes ecosistemas y produce contaminación ya que la producción de ropa implica el uso de productos químicos y tintes que contaminan ríos y suelos. 
+        </p>
+        <p class="note-box">
+          Al igual que deja residuos que se estima que millones de toneladas de ropa terminan en vertederos cada año, contribuyendo a la crisis de residuos textiles.
+        </p>
+      </section>
+    </section>
+
+    <section class="screen">
+      <div class="brand-box">
+        <p>
+          Una de estas marcas es <span class="highlight">BRUNDTLAND</span> y queremos darla a conocer ya que vendemos ropa de segunda mano y así tú ayudas a disminuir esta problemática del fast fashion continuando con el ciclo de ropa.
+          <br><br>
+          Es importante no dejarse llevar por el fast fashion y comprar ropa cuando sea necesario al igual que concientizar de esta problemática.
+        </p>
+      </div>
+    </section>
+
+    <section class="screen" id="video">
+      <h2>Video Informativo</h2>
+      <div class="video-container">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/zxOnv7LdeOA" 
+          title="Video de YouTube" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+    const links = document.querySelectorAll('.link');
+
+    function openMenu() {
+      menu.classList.add('open');
+      overlay.classList.add('show');
+      toggle.classList.add('hidden');
+    }
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      overlay.classList.remove('show');
+      toggle.classList.remove('hidden');
+    }
+
+    toggle.addEventListener('click', () => {
+      menu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    overlay.addEventListener('click', closeMenu);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('activo'));
+        link.classList.add('activo');
+        closeMenu();
+      });
+    });
+  </script>
+
+</body>
+</html>
+
