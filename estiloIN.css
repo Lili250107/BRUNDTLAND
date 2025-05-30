@@ -1,0 +1,195 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: 'Afacad', Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Menú lateral derecho */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -270px;
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-left: 1px solid #fff;
+  height: 100vh;
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+.menu.open {
+  right: 0;
+}
+
+.menu h2 {
+ margin-bottom: 20px;
+  color: #ACD5B8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #000000;
+  padding: 10px 0;
+  transition: background 0.2s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.menu a i {
+  color: #ACD5B8
+}
+
+.menu a:hover {
+  background-color: #ACD5B8
+}
+
+.menu a.activo {
+  background-color: #ACD5B8;
+  color: black;
+  border-radius: 5px;
+}
+
+/* Botón menú */
+.menu-button {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ACD5B8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-button i {
+  color: white;
+  font-size: 22px;
+}
+
+/* Fondo oscuro al abrir menú */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenido */
+.container {
+  position: relative;
+  padding: 20px;
+}
+
+.box1 {
+  width: calc(100% - 100px); /* deja espacio a la derecha para el botón */
+  max-width: 600px;
+  height: 73px;
+  position: absolute;
+  left: 20px;
+  top: 67px;
+  background: #AEB4AF;
+  border-radius: 36.5px;
+}
+
+/* Imagen y texto */
+.image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.background-image {
+  width: 100%;
+  height: auto;
+  margin-top: 150px;
+}
+
+.fast-fashion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  margin-top: 80px;
+}
+
+.brundtland {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #ACD5B8;
+  margin-top: 150px;
+}
+
+p {
+  text-align: justify;
+  color: white;
+  background-color: black;
+  padding: 25px;
+  font-family: Arial;
+}
+
+span {
+  font-weight: bolder;
+  color: #ACD5B8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .box1 {
+    width: 90%;
+    left: 5%;
+    top: 60px;
+  }
+
+  .fast-fashion {
+    font-size: 28px;
+  }
+
+  .brundtland {
+    font-size: 16px;
+  }
+
+  .menu-button {
+    width: 45px;
+    height: 45px;
+    top: 15px;
+    right: 15px;
+  }
+}
+.menu-button.hidden {
+  display: none;
+}
+@media (max-width: 500px) {
+  .box1 {
+    width: calc(100% - 40px); /* más delgada en celulares */
+    left: 20px;
+    right: 20px;
+  }
+}
