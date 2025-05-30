@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TikTok</title>
+  <link rel="stylesheet" href="css/Videos_TT.css" />
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Fondo oscuro al abrir menú -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Botón Menú -->
+  <div class="menu-button" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- Menú lateral derecho -->
+ <nav class="menu" id="menu">
+    <h2>Temas</h2>
+    <a href="index.html" class="link"><i class="fa-solid fa-house"></i> Inicio </a>
+    <a href="ImpactiAmbiental.html" class="link"><i class="fas fa-leaf"></i> Impacto Ambiental</a>
+    <a href="ImpactoSocial.html" class="link"><i class="fas fa-users"></i> Impacto Social</a>
+    <a href="Alternativas_Sost.html" class="link"><i class="fas fa-recycle"></i> Alternativas</a>
+    <a href="Videos.html" class="link"><i class="fas fa-video"></i> Videos</a>
+    <a href="videos_TT.html" class="link"><i class="fab fa-tiktok"></i> TikTok</a>
+  </nav>
+
+<main class="container">
+  <section class="videos-informativos" id="videos-informativos">
+    <h1>TikTok</h1>
+    <div class="linea"></div>
+    <p>
+      ¡Prueba nuestro filtro en TikTok y únete al movimiento por una moda más consciente!
+    </p>
+    <div class="video-thumbnails">
+    <div class="video-card">
+  <a href="https://vt.tiktok.com/ZShKdnr86/" target="_blank" class="brillante">
+    <h3>Probar Nuestro filtro de TikTok</h3>
+  </a>
+</div>
+
+
+
+    </div>
+  </section>
+</main>
+   <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+    const links = document.querySelectorAll('.link');
+
+    function openMenu() {
+      menu.classList.add('open');
+      overlay.classList.add('show');
+      toggle.classList.add('hidden');
+    }
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      overlay.classList.remove('show');
+      toggle.classList.remove('hidden');
+    }
+
+    toggle.addEventListener('click', () => {
+      menu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+
+    overlay.addEventListener('click', closeMenu);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('activo'));
+        link.classList.add('activo');
+        closeMenu();
+      });
+    });
+  </script>
+</body>
+</html>
