@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impacto Social - Fast Fashion</title>
+  <link rel="stylesheet" href="css/estilosocial.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Fondo oscuro al abrir menú -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Botón Menú -->
+  <div class="menu-button" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- Menú lateral derecho -->
+  <nav class="menu" id="menu">
+    <h2>Temas</h2>
+    <a href="index.html" class="link"><i class="fa-solid fa-house"></i></i> Inicio </a>
+    <a href="ImpactiAmbiental.html" class="link"><i class="fas fa-leaf"></i> Impacto Ambiental</a>
+    <a href="ImpactoSocial.html" class="link"><i class="fas fa-users"></i> Impacto Social</a>
+    <a href="Alternativas_Sost.html" class="link"><i class="fas fa-recycle"></i> Alternativas</a>
+    <a href="Videos.html" class="link"><i class="fas fa-video"></i> Videos</a>
+    <a href="videos_TT.html" class="link"><i class="fab fa-tiktok"></i> TikTok</a>
+  </nav>
+
+  <section class="impacto-social" id="impacto-social">
+    <h1>Impacto Social</h1>
+    <div class="linea"></div>
+
+    <div class="contenedor-informacion">
+      <div class="texto">
+        <p>
+          La explotación en la industria textil no solo
+          <span class="resaltado">tiene consecuencias económicas y laborales</span>,
+          sino que también genera un profundo impacto social en las comunidades y sociedades donde se desarrolla.
+        </p>
+      </div>
+      <div class="icono">
+        <i class="fas fa-users"></i>
+      </div>
+    </div>
+
+    <!-- Carrusel tipo slider -->
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <img src="https://i.pinimg.com/736x/75/70/7c/75707cfd9a54611c67b1eca9c7b07124.jpg" alt="Imagen 1">
+        <img src="https://i.pinimg.com/736x/05/10/c8/0510c89ab5685488a6517510622e6ac9.jpg" alt="Imagen 2">
+        <img src="https://i.pinimg.com/736x/dd/4e/28/dd4e28b4499396add377b2fb09f0210c.jpg" alt="Imagen 3">
+        <img src="https://i.pinimg.com/736x/5c/91/56/5c9156f0cfb4343674695e06fceb93b9.jpg" alt="Imagen 4">
+      </div>
+      <div class="puntos" id="puntos"></div>
+    </div>
+  </section>
+
+  <script>
+    const slider = document.getElementById("slider");
+    const puntos = document.getElementById("puntos");
+    const slides = slider.querySelectorAll("img");
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("punto");
+      if (i === 0) dot.classList.add("activo");
+      dot.addEventListener("click", () => moverSlider(i));
+      puntos.appendChild(dot);
+    });
+
+    function moverSlider(i) {
+      slider.style.transform = `translateX(-${i * 100}%)`;
+      puntos.querySelectorAll("span").forEach(p => p.classList.remove("activo"));
+      puntos.children[i].classList.add("activo");
+      index = i;
+    }
+
+    // Script del menú
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+    const links = document.querySelectorAll('.link');
+
+    function openMenu() {
+      menu.classList.add('open');
+      overlay.classList.add('show');
+      toggle.classList.add('hidden');
+    }
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      overlay.classList.remove('show');
+      toggle.classList.remove('hidden');
+    }
+
+    toggle.addEventListener('click', () => {
+      if (menu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    overlay.addEventListener('click', closeMenu);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('activo'));
+        link.classList.add('activo');
+        closeMenu();
+      });
+    });
+  </script>
+
+</body>
+</html>
