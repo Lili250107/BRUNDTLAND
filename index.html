@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fast Fashion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/estiloIN.css" />
+</head>
+<body>
+
+  <!-- Fondo oscuro -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Botón de menú -->
+  <div class="menu-button" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- Menú lateral derecho -->
+   <nav class="menu" id="menu">
+    <h2>Temas</h2>
+    <a href="index.html" class="link"><i class="fa-solid fa-house"></i></i> Inicio </a>
+    <a href="ImpactiAmbiental.html" class="link"><i class="fas fa-leaf"></i> Impacto Ambiental</a>
+    <a href="ImpactoSocial.html" class="link"><i class="fas fa-users"></i> Impacto Social</a>
+    <a href="Alternativas_Sost.html" class="link"><i class="fas fa-recycle"></i> Alternativas</a>
+    <a href="Videos.html" class="link"><i class="fas fa-video"></i> Videos</a>
+    <a href="videos_TT.html" class="link"><i class="fab fa-tiktok"></i> TikTok</a>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="box1"></div>
+
+    <div class="image-container">
+      <img src="https://cdn.cosmos.so/7e0b4811-d2f6-404d-a2a0-7e13f15e77aa?format=jpeg" alt="Imagen" class="background-image">
+      <div class="fast-fashion">FAST FASHION</div>
+      <div class="brundtland">BRUNDTLAND</div>
+    </div>
+
+    <p>
+      A través de esta campaña, buscamos informar y educar a la comunidad sobre los
+      <span>efectos negativos</span> del fast fashion y promover alternativas más sostenibles y éticas.
+      Juntos, podemos hacer una diferencia y contribuir a un <span>futuro más responsable</span> en la moda.
+    </p>
+  </div>
+
+ <script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const overlay = document.getElementById('overlay');
+  const links = document.querySelectorAll('.link');
+
+  function openMenu() {
+    menu.classList.add('open');
+    overlay.classList.add('show');
+    toggle.classList.add('hidden'); // Oculta el botón
+  }
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    overlay.classList.remove('show');
+    toggle.classList.remove('hidden'); // Muestra el botón
+  }
+
+  toggle.addEventListener('click', () => {
+    if (menu.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      links.forEach(l => l.classList.remove('activo'));
+      link.classList.add('activo');
+      closeMenu();
+    });
+  });
+</script>
+</body>
+</html>
